@@ -11,4 +11,5 @@ element1 = element.textContent;
 // console.log(element1);
 // element.style.color = 'red';
 // element.style.fontSize = '50px';
+console.log('element');
 
