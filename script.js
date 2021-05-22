@@ -46,9 +46,9 @@
 //     elements.style.color = 'red';
 // }
 
-let elementLast = document.querySelector('.item:nth-child(3)');
-console.log(elementLast);
-    elementLast.style.color = 'red';
+// let elementLast = document.querySelector('.item:nth-child(3)');
+// console.log(elementLast);
+//     elementLast.style.color = 'red';
 
 
     // ✅.children
@@ -56,3 +56,17 @@ console.log(elementLast);
     // ✅ .closest
     // ✅ .nextElementSibling
     // ✅ .previousElementSibling
+
+    // const grandParent = document.querySelector('.todo-list');
+    // const parent  = document.querySelector('#items');
+    // const parent = grandParent.children;
+    // const children = parent[1].children;
+    // console.log(children);
+    // const children = grandParent.querySelectorAll('.item');
+
+const children = document.querySelector('.item');
+// const parent = children.parentElement;
+// const grandParent  = children.closest('.todo-list');
+const childrenNext = children.nextElementSibling;
+const childrenPrev = childrenNext.previousElementSibling;
+    childrenPrev.style.color = 'red';
