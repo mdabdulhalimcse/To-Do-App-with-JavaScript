@@ -1,72 +1,21 @@
+//DOM Manipulate 
+// creating an element
+const divElement = document.createElement('div');
+divElement.className = 'red';
 
-// ✅ getElementById
-// ✅ getElementsByClassName
-// ✅ getElementsByTagName
-// ✅ textContent(without css)
-// ✅ innerText
-// ✅ innerHTML
-// ✅ querySelector
-// ✅ querySelectorAll
+divElement.setAttribute('id','red');
+divElement.setAttribute('title', 'Red Div');
 
+const container = document.querySelector('.todo-list');
+// const h2Element = document.querySelector('h2');
+// container.insertBefore(divElement,h2Element);
+// container.appendChild(divElement);
+// container.append(divElement);
+// container.append('Hello world');
 
-// var element = document.getElementById('header1');
-//  element1 = element.innerText = 'todo apps';
-//  console.log(element1);
-//  element1 = element.innerText ;
-// element1 = element.textContent;
-// console.log(element1);
-// element.style.color = 'red';
-// element.style.fontSize = '50px';
-// console.log('element');
-// var element = document.getElementsByClassName('item')[0];
-// var element2 = element.nextElementSibling;
-// element1 = element2.previousElementSibling;
-// element1.style.color = 'red';
-// let itemUL = document.getElementById('items');
-// let element = itemUL.getElementsByClassName('item');
-// for(let elements of element){
-//     elements.style.backgroundColor = 'red';
-// }
+// const a = container.appendChild(divElement);
+// const b = container.append(divElement);
+// console.log(b);
 
-// let element = document.getElementsByTagName('img');
-// console.log(element);
-
-// Query Selector
-
-// let header = document.querySelector('#items');
-// console.log(header);
-// let elementLast = document.querySelector('.item:last-child');
-// elementLast.style.color = 'red';
-// let mid = elementLast.previousElementSibling;
-// mid.style.color = 'red';
-
-// let elementLast = document.querySelectorAll('.item:last-child');
-// console.log(elementLast);
-// for (const elements of elementLast) {
-//     elements.style.color = 'red';
-// }
-
-// let elementLast = document.querySelector('.item:nth-child(3)');
-// console.log(elementLast);
-//     elementLast.style.color = 'red';
-
-
-    // ✅.children
-    // ✅.parent
-    // ✅ .closest
-    // ✅ .nextElementSibling
-    // ✅ .previousElementSibling
-
-    // const grandParent = document.querySelector('.todo-list');
-    // const parent  = document.querySelector('#items');
-    // const parent = grandParent.children;
-    // const children = parent[1].children;
-    // console.log(children);
-    // const children = grandParent.querySelectorAll('.item');
-
-const children = document.querySelector('.item');
-// const parent = children.parentElement;
-// const grandParent  = children.closest('.todo-list');
-const childrenNext = children.nextElementSibling;
-const childrenPrev = childrenNext.previousElementSibling;
-    childrenPrev.style.color = 'red';
+// container.appendChild(divElement, document.createElement('p'),'Hello World');
+container.append(divElement, document.createElement('p'),'Hello World');
