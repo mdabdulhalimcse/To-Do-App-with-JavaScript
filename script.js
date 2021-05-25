@@ -23,3 +23,8 @@ console.log(event.target.value);
 //     event.preventDefault();
 // console.log(event.target);
 // });
+
+
+
+// https://www.w3schools.com/js/js_htmldom_events.asp
+// https://www.w3schools.com/jsref/dom_obj_event.asp
