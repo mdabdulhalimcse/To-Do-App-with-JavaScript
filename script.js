@@ -1,21 +1,25 @@
-//DOM Manipulate 
-// creating an element
-const divElement = document.createElement('div');
-divElement.className = 'red';
+// Event Listening 
 
-divElement.setAttribute('id','red');
-divElement.setAttribute('title', 'Red Div');
+// const header = document.querySelector('#header');
 
-const container = document.querySelector('.todo-list');
-// const h2Element = document.querySelector('h2');
-// container.insertBefore(divElement,h2Element);
-// container.appendChild(divElement);
-// container.append(divElement);
-// container.append('Hello world');
+// //click, dblclick, mousedown, mouseup, mouseenter, mouseleave, mouseover, mouseout, mousemove,
+// header.addEventListener('mouseenter', (event) => {
+// console.log(event)
+// });
 
-// const a = container.appendChild(divElement);
-// const b = container.append(divElement);
-// console.log(b);
 
-// container.appendChild(divElement, document.createElement('p'),'Hello World');
-container.append(divElement, document.createElement('p'),'Hello World');
+//Input
+const header = document.querySelector('input[type="text"');
+//keydown, keyip . keypress, focus, blur , cut , copy, paste,input
+header.addEventListener('keydown', (event) => {
+console.log(event.target.value);
+});
+
+
+// //Form
+// const header = document.querySelector('form');
+// //submit
+// header.addEventListener('submit', (event) => {
+//     event.preventDefault();
+// console.log(event.target);
+// });
