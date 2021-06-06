@@ -1,30 +1,68 @@
-// Event Listening 
-
-// const header = document.querySelector('#header');
-
-// //click, dblclick, mousedown, mouseup, mouseenter, mouseleave, mouseover, mouseout, mousemove,
-// header.addEventListener('mouseenter', (event) => {
-// console.log(event)
-// });
+let newTask = document.querySelector('#new-task');
+ let form = document.querySelector('form');
+ let todoUl = document.querySelector('#items');
+ let completeUl = document.querySelector('.complete-list ul');
 
 
-//Input
-const header = document.querySelector('input[type="text"');
-//keydown, keyip . keypress, focus, blur , cut , copy, paste,input
-header.addEventListener('keydown', (event) => {
-console.log(event.target.value);
-});
+// functions
+let createTask = function(task) {
+    let listItem = document.createElement('li');
+    let checkBox = document.createElement('input');
+    let label = document.createElement('label');
 
+    label.innerText = task;
+    checkBox.type = 'checkbox';
 
-// //Form
-// const header = document.querySelector('form');
-// //submit
-// header.addEventListener('submit', (event) => {
-//     event.preventDefault();
-// console.log(event.target);
-// });
+    listItem.appendChild(checkBox);
+    listItem.appendChild(label);
 
+    return listItem;
+}
 
+let addTask = function(event) {
+    event.preventDefault();
+    let listItem = createTask(newTask.value);
+    todoUl.appendChild(listItem);
+    newTask.value = "";
 
-// https://www.w3schools.com/js/js_htmldom_events.asp
-// https://www.w3schools.com/jsref/dom_obj_event.asp
+    bindInCompleteItems(listItem, completeTask);
+}
+
+let completeTask = function() {
+    let listItem = this.parentNode;
+    let deleteBtn = document.createElement('button');
+    deleteBtn.innerText = 'Delete';
+    deleteBtn.className = 'delete';
+    listItem.appendChild(deleteBtn);
+
+    let checkBox = listItem.querySelector('input[type="checkbox"]');
+    checkBox.remove();
+    completeUl.appendChild(listItem);
+    bindCompleteItems(listItem, deleteTask);
+}
+
+let deleteTask = function() {
+    let listItem = this.parentNode;
+    let ul = listItem.parentNode;
+    ul.removeChild(listItem);
+}
+
+let bindInCompleteItems = function(taskItem, checkboxClick) {
+    let checkBox = taskItem.querySelector('input[type="checkbox"]');
+    checkBox.onchange = checkboxClick;
+}
+
+let bindCompleteItems = function(taskItem, deleteButtonClick) {
+    let deleteButton = taskItem.querySelector('.delete');
+    deleteButton.onclick = deleteButtonClick;
+}
+
+for(let i=0; i< todoUl.children.length; i++ ) {
+    bindInCompleteItems(todoUl.children[i], completeTask);
+}
+
+for(let i=0; i< completeUl.children.length; i++ ) {
+    bindCompleteItems(completeUl.children[i], deleteTask);
+}
+
+form.addEventListener('submit', addTask);
